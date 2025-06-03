@@ -31,6 +31,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import FeedbackList from '@/components/FeedbackList';
 
 interface User {
   id: string;
@@ -323,6 +324,7 @@ const AllUsersDashboard = () => {
               </div>
             </CardContent>
           </Card>
+          <FeedbackList />
         </TabsContent>
         
         <TabsContent value="messages">

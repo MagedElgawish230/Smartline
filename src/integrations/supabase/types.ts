@@ -644,6 +644,27 @@ export type Database = {
           },
         ]
       }
+      feedback: {
+        Row: {
+          id: string;
+          rating: number;
+          comment: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          rating: number;
+          comment: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          rating?: number;
+          comment?: string;
+          created_at?: string;
+        };
+        Relationships: [];
+      },
     }
     Views: {
       [_ in never]: never
