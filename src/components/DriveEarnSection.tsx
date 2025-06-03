@@ -13,7 +13,7 @@ const DriveEarnSection = () => {
           <div className={`${isRTL ? 'lg:order-2' : ''}`}>
             <div className="relative">
               <img
-                src="/lovable-uploads/dd732ec3-9677-420a-9509-a7d64d517b98.png"
+                src="/lovable-uploads/driver.jpg"
                 alt={t('drive.image.alt')}
                 className="w-full h-auto rounded-lg shadow-lg"
               />

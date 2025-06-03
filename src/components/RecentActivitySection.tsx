@@ -61,7 +61,7 @@ const RecentActivitySection = () => {
           <div>
             <div className="relative">
               <img
-                src="/lovable-uploads/a341f18f-946b-4f7d-99b0-76fe005c8c4d.png"
+                src="/lovable-uploads/518201d3-5873-4950-ac22-690af516212e.png"
                 alt={t('recent.image.alt')}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
