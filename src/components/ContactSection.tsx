@@ -3,6 +3,13 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { Button } from './ui/button';
 import { supabase } from '../integrations/supabase/client';
 
+// Utility to convert Western digits and plus sign to Arabic-Indic digits
+function toArabicNumerals(str: string) {
+  return str
+    .replace(/[0-9]/g, d => String.fromCharCode(0x0660 + Number(d)))
+    .replace('+', '\u002B'); // Use Arabic plus sign if desired, or keep as is
+}
+
 const ContactSection = () => {
   const { t, isRTL } = useLanguage();
 
@@ -72,7 +79,7 @@ const ContactSection = () => {
                     {t('contact.phone.title')}
                   </h4>
                   <p className={`text-sm md:text-base text-gray-600 ${isRTL ? 'font-cairo' : 'font-inter'}`}>
-                    {t('contact.phone.number')}
+                    {isRTL ? `${toArabicNumerals(t('contact.phone.number').replace('+', ''))}+` : t('contact.phone.number')}
                   </p>
                 </div>
               </div>
