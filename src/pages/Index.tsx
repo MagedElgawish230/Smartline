@@ -1,8 +1,7 @@
-
 import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
-import GoAnywhereSection from '../components/GoAnywhereSection';
+// import GoAnywhereSection from '../components/GoAnywhereSection';
 import RecentActivitySection from '../components/RecentActivitySection';
 import DriveEarnSection from '../components/DriveEarnSection';
 import EasierInAppsSection from '../components/EasierInAppsSection';
@@ -15,12 +14,16 @@ import FeedbackRatingSection from '../components/FeedbackRatingSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
+// Add InfoCardsSection import
+import InfoCardsSection from '../components/InfoCardsSection';
+
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <GoAnywhereSection />
+      <InfoCardsSection />
+      {/* <GoAnywhereSection /> */}
       <RecentActivitySection />
       <DriveEarnSection />
       <EasierInAppsSection />
