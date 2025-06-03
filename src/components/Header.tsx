@@ -14,12 +14,11 @@ import {
 
 const Header = () => {
   const { t, isRTL } = useLanguage();
-  const { user, signOut } = useAuth();
+  const { user, signOut, profile } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // TODO: Replace with actual admin check from user profile
-  const isAdmin = user?.email === 'admin@smartline.com'; // Temporary admin check
+  const isAdmin = profile?.role === 'admin';
 
   const translations = {
     en: {
@@ -132,12 +131,6 @@ const Header = () => {
                     <User className="h-4 w-4 mr-2" />
                     {translations[currentLang].dashboard}
                   </DropdownMenuItem>
-                  {isAdmin && (
-                    <DropdownMenuItem onClick={() => navigate('/admin-dashboard')}>
-                      <Settings className="h-4 w-4 mr-2" />
-                      {translations[currentLang].adminDashboard}
-                    </DropdownMenuItem>
-                  )}
                   <DropdownMenuItem onClick={handleSignOut}>
                     <LogOut className="h-4 w-4 mr-2" />
                     {translations[currentLang].logout}
@@ -206,17 +199,6 @@ const Header = () => {
                     >
                       {translations[currentLang].dashboard}
                     </button>
-                    {isAdmin && (
-                      <button
-                        onClick={() => {
-                          navigate('/admin-dashboard');
-                          setIsMobileMenuOpen(false);
-                        }}
-                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-                      >
-                        {translations[currentLang].adminDashboard}
-                      </button>
-                    )}
                     <button
                       onClick={handleSignOut}
                       className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
