@@ -1,9 +1,21 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const DriveEarnSection = () => {
   const { t, isRTL } = useLanguage();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const handleGetStarted = () => {
+    if (!user) {
+      navigate('/auth?mode=login');
+    } else {
+      navigate('/driver-register');
+    }
+  };
 
   return (
     <section className="py-20 bg-gray-50">
@@ -31,11 +43,12 @@ const DriveEarnSection = () => {
             </p>
 
             <div className="space-y-4">
-              <Link to="/driver-register">
-                <button className="bg-primary-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-primary-700 transition-colors text-lg">
-                  Get Started
-                </button>
-              </Link>
+              <button
+                className="bg-primary-600 text-white px-8 py-4 rounded-lg font-medium hover:bg-primary-700 transition-colors text-lg"
+                onClick={handleGetStarted}
+              >
+                Get Started
+              </button>
               
               <p className="text-gray-600">
                 {t('drive.signin.text')} <span className="underline cursor-pointer hover:text-gray-900">{t('drive.signin.link')}</span>
