@@ -1,31 +1,59 @@
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { supabase } from '../integrations/supabase/client';
+import { createClient } from '@supabase/supabase-js';
+
+// Initialize Supabase client with environment variables
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  console.error('Missing Supabase environment variables');
+}
+
+const supabase = createClient(supabaseUrl || '', supabaseAnonKey || '');
 
 const FeedbackRatingSection = () => {
   const { t, isRTL } = useLanguage();
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState<number>(0);
   const [hoveredRating, setHoveredRating] = useState(0);
-  const [feedback, setFeedback] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [feedback, setFeedback] = useState<string>('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
+    setIsSubmitting(true);
+
+    if (rating === 0) {
+      setError(t('feedback.selectRating'));
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      const { error } = await supabase
+      const { error: supabaseError } = await supabase
         .from('feedback')
-        .insert([{ rating, comment: feedback }]);
-      if (error) {
-        console.error('Error submitting feedback:', error.message);
-      } else {
-        setSubmitted(true);
-        setFeedback('');
-        setRating(0);
-        setTimeout(() => setSubmitted(false), 3000);
+        .insert([{ 
+          rating, 
+          comment: feedback || '',
+          created_at: new Date().toISOString()
+        }]);
+
+      if (supabaseError) {
+        throw new Error(supabaseError.message);
       }
-    } catch (err) {
-      console.error('Unexpected error submitting feedback:', err);
+      
+      setIsSubmitted(true);
+      setRating(0);
+      setFeedback('');
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      setError(t('feedback.error'));
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -70,6 +98,14 @@ const FeedbackRatingSection = () => {
     const currentLang = isRTL ? 'ar' : 'en';
     return ratings[currentLang][rating as keyof typeof ratings['en']];
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="text-center p-4">
+        <h3 className="text-lg font-semibold text-green-600">Thank you for your feedback!</h3>
+      </div>
+    );
+  }
 
   return (
     <section className="py-20 bg-white">
@@ -119,18 +155,16 @@ const FeedbackRatingSection = () => {
             <div className="text-center">
               <button
                 type="submit"
-                disabled={rating === 0 || !feedback.trim()}
+                disabled={rating === 0 || isSubmitting}
                 className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
-                {submitted ? t('feedback.thanks') : t('feedback.submit')}
+                {isSubmitting ? t('feedback.submitting') : t('feedback.submit')}
               </button>
             </div>
 
-            {submitted && (
-              <div className="text-center">
-                <p className={`text-green-600 font-medium ${isRTL ? 'font-cairo' : 'font-inter'}`}>
-                  {t('feedback.success')}
-                </p>
+            {error && (
+              <div className="text-center mt-4">
+                <p className="text-red-600">{error}</p>
               </div>
             )}
           </form>
