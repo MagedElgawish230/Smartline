@@ -40,6 +40,10 @@ const translations = {
     'recent.signup.text': "Don't have a SmartLine account?",
     'recent.signup.link': 'Sign up',
     'recent.image.alt': 'Recent activity illustration',
+    'recent.welcome': 'Welcome back,',
+    'recent.ready': 'Ready to book your next ride?',
+    'recent.book': 'Book a Ride',
+    'recent.profile': 'View Profile',
     
     // Drive and Earn Section
     'drive.title': 'Drive when you want, make what you need',
@@ -183,7 +187,7 @@ const translations = {
     'info.cards.2.title': '🚗 Smart Pro Car',
     'info.cards.2.desc': 'Make your ride stylish and affordable! Comfort and elegance at a price that suits you!',
     'info.cards.3.title': '🚘 Smart VIP Car',
-    'info.cards.3.desc': 'Got an occasion? Don’t hesitate for a second! A car that will impress and always keep you in the spotlight 😉',
+    'info.cards.3.desc': 'Got an occasion? Don\'t hesitate for a second! A car that will impress and always keep you in the spotlight 😉',
   },
   ar: {
     // Navigation
@@ -215,6 +219,10 @@ const translations = {
     'recent.signup.text': 'ليس لديك حساب سمارت لاين؟',
     'recent.signup.link': 'إنشاء حساب',
     'recent.image.alt': 'النشاط الأخير',
+    'recent.welcome': 'مرحباً بعودتك،',
+    'recent.ready': 'جاهز لحجز رحلتك القادمة؟',
+    'recent.book': 'احجز رحلة',
+    'recent.profile': 'الملف الشخصي',
     
     // Drive and Earn Section
     'drive.title': 'قد متى تريد، اكسب ما تحتاج',
