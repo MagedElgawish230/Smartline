@@ -1,7 +1,7 @@
-
 import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { supabase } from '../integrations/supabase/client';
 
 const FeedbackRatingSection = () => {
   const { t, isRTL } = useLanguage();
@@ -10,12 +10,23 @@ const FeedbackRatingSection = () => {
   const [feedback, setFeedback] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the feedback to your backend
-    console.log('Feedback submitted:', { rating, feedback });
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
+    try {
+      const { error } = await supabase
+        .from('feedback')
+        .insert([{ rating, comment: feedback }]);
+      if (error) {
+        console.error('Error submitting feedback:', error.message);
+      } else {
+        setSubmitted(true);
+        setFeedback('');
+        setRating(0);
+        setTimeout(() => setSubmitted(false), 3000);
+      }
+    } catch (err) {
+      console.error('Unexpected error submitting feedback:', err);
+    }
   };
 
   const renderStars = () => {
