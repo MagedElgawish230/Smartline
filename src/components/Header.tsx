@@ -1,11 +1,10 @@
-
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useAuth } from '@/contexts/AuthContext';
 import LanguageToggle from './LanguageToggle';
 import { Button } from '@/components/ui/button';
-import { Settings, User, LogOut } from 'lucide-react';
+import { Settings, User, LogOut, Menu, X } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,6 +16,7 @@ const Header = () => {
   const { t, isRTL } = useLanguage();
   const { user, signOut } = useAuth();
   const navigate = useNavigate();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // TODO: Replace with actual admin check from user profile
   const isAdmin = user?.email === 'admin@smartline.com'; // Temporary admin check
@@ -52,15 +52,22 @@ const Header = () => {
 
   const handleLogin = () => {
     navigate('/auth?mode=login');
+    setIsMobileMenuOpen(false);
   };
 
   const handleSignup = () => {
     navigate('/auth?mode=signup');
+    setIsMobileMenuOpen(false);
   };
 
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
+    setIsMobileMenuOpen(false);
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
@@ -74,7 +81,19 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Navigation */}
+          {/* Mobile menu button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600 hover:bg-gray-100 focus:outline-none"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
+          </button>
+
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
             <Link
               to="/"
@@ -96,8 +115,8 @@ const Header = () => {
             </a>
           </nav>
 
-          {/* Right side */}
-          <div className="flex items-center space-x-4">
+          {/* Desktop Right side */}
+          <div className="hidden md:flex items-center space-x-4">
             <LanguageToggle />
             
             {user ? (
@@ -105,7 +124,7 @@ const Header = () => {
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" className="flex items-center space-x-2">
                     <User className="h-4 w-4" />
-                    <span className="hidden sm:inline">{user.email}</span>
+                    <span>{user.email}</span>
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
@@ -144,6 +163,87 @@ const Header = () => {
             )}
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+              <Link
+                to="/"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {translations[currentLang].home}
+              </Link>
+              <a
+                href="#about"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {translations[currentLang].about}
+              </a>
+              <a
+                href="#contact"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {translations[currentLang].contact}
+              </a>
+            </div>
+            <div className="pt-4 pb-3 border-t border-gray-200">
+              <div className="flex items-center px-5">
+                <LanguageToggle />
+              </div>
+              <div className="mt-3 px-2 space-y-1">
+                {user ? (
+                  <>
+                    <button
+                      onClick={() => {
+                        navigate('/dashboard');
+                        setIsMobileMenuOpen(false);
+                      }}
+                      className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                    >
+                      {translations[currentLang].dashboard}
+                    </button>
+                    {isAdmin && (
+                      <button
+                        onClick={() => {
+                          navigate('/admin-dashboard');
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                      >
+                        {translations[currentLang].adminDashboard}
+                      </button>
+                    )}
+                    <button
+                      onClick={handleSignOut}
+                      className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                    >
+                      {translations[currentLang].logout}
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <button
+                      onClick={handleLogin}
+                      className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                    >
+                      {translations[currentLang].login}
+                    </button>
+                    <button
+                      onClick={handleSignup}
+                      className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-primary-600 hover:text-primary-700 hover:bg-gray-50"
+                    >
+                      {translations[currentLang].signup}
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );
