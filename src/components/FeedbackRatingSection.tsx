@@ -83,6 +83,11 @@ const FeedbackRatingSection = () => {
           </p>
         </div>
 
+        {/* Feedback Image */}
+        <div className="flex justify-center mb-8">
+          <img src="/lovable-uploads/Feedback.jpg" alt="Feedback" className="w-48 md:w-64 rounded-xl shadow-lg object-contain" />
+        </div>
+
         <div className="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Star Rating */}
