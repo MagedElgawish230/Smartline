@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Users, Car, Star, TrendingUp } from 'lucide-react';
 import DriverApplications from '@/components/admin/DriverApplications';
 import DashboardStats from '@/components/admin/DashboardStats';
+import DriversDashboard from '@/components/admin/DriversDashboard';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -30,6 +30,7 @@ const AdminDashboard = () => {
       dashboard: 'Admin Dashboard',
       overview: 'Overview',
       drivers: 'Driver Applications',
+      driversList: 'Drivers List',
       totalDrivers: 'Total Drivers',
       pendingApplications: 'Pending Applications',
       averageRating: 'Average Rating',
@@ -39,6 +40,7 @@ const AdminDashboard = () => {
       dashboard: 'لوحة إدارة المشرف',
       overview: 'نظرة عامة',
       drivers: 'طلبات السائقين',
+      driversList: 'قائمة السائقين',
       totalDrivers: 'إجمالي السائقين',
       pendingApplications: 'الطلبات المعلقة',
       averageRating: 'متوسط التقييم',
@@ -56,9 +58,10 @@ const AdminDashboard = () => {
         </h1>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="overview">{translations[currentLang].overview}</TabsTrigger>
             <TabsTrigger value="drivers">{translations[currentLang].drivers}</TabsTrigger>
+            <TabsTrigger value="driversList">{translations[currentLang].driversList}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -67,6 +70,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="drivers">
             <DriverApplications />
+          </TabsContent>
+
+          <TabsContent value="driversList">
+            <DriversDashboard />
           </TabsContent>
         </Tabs>
       </div>
