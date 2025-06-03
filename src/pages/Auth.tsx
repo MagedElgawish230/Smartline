@@ -83,6 +83,20 @@ const Auth = () => {
     });
   };
 
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
+    try {
+      await supabase.auth.signInWithOAuth({ provider: 'google' });
+    } catch (error) {
+      toast({
+        title: 'Google Sign-In Failed',
+        description: error.message || 'Failed to sign in with Google',
+        variant: 'destructive',
+      });
+    }
+    setLoading(false);
+  };
+
   // Keep this handleDriverRegistration function for now, it might be moved or refactored later
   // const handleDriverRegistration = async (driverData: any) => {
   //   setLoading(true);
@@ -176,7 +190,16 @@ const Auth = () => {
           </CardHeader>
           
           <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+            <Button
+              type="button"
+              className="w-full h-12 text-lg font-medium bg-white text-gray-800 border border-gray-300 hover:bg-gray-100 flex items-center justify-center gap-2 mb-4"
+              onClick={handleGoogleSignIn}
+              disabled={loading}
+            >
+              <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" className="w-5 h-5" />
+              {isLogin ? 'Sign in with Google' : 'Sign up with Google'}
+            </Button>
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
                 {!isLogin && (
                   <div className="space-y-2">
@@ -244,7 +267,7 @@ const Auth = () => {
                   className="w-full h-12 text-lg font-medium bg-primary-600 hover:bg-primary-700"
                   disabled={loading}
                 >
-                  {loading ? 'Signing In...' : 'Sign In'}
+                  {loading ? (isLogin ? 'Signing In...' : 'Signing Up...') : (isLogin ? 'Sign In' : 'Sign Up')}
                 </Button>
               </div>
             </form>
