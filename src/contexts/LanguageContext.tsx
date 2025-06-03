@@ -176,6 +176,14 @@ const translations = {
     'driver.nationalId': 'National ID',
     'driver.passport': 'Passport',
     'driver.driverLicense': 'Driver License',
+    
+    // Info Cards Section
+    'info.cards.1.title': 'All information at your fingertips',
+    'info.cards.1.desc': "Don't miss any details anymore. Get all the information you need, whenever and wherever you want. Analyze it easily through our user-friendly interface and improve your experience.",
+    'info.cards.2.title': 'Customizable from start to finish',
+    'info.cards.2.desc': 'Feel free to customize your content the way you prefer. No need for complex technical knowledge, our easy-to-use tool will help you.',
+    'info.cards.3.title': 'Built to be just like you',
+    'info.cards.3.desc': 'Always ready to choose the best solution for your needs, from traditional transport services to smart solutions that reflect your lifestyle.',
   },
   ar: {
     // Navigation
@@ -343,6 +351,14 @@ const translations = {
     'driver.nationalId': 'الهوية الوطنية',
     'driver.passport': 'جواز السفر',
     'driver.driverLicense': 'رخصة القيادة',
+    
+    // Info Cards Section
+    'info.cards.1.title': 'كل المعلومات في متناول يدك',
+    'info.cards.1.desc': 'لا تتوقف أي تفاصيل بعد الآن، واحصل على كافة المعلومات التي تحتاج إليها متى وأينما تريد. تُمكنك من تحليلها بكل سهولة من خلال الواجهة سهلة الاستخدام لدينا وقم بتحسين تجربتك.',
+    'info.cards.2.title': 'قابل للتعديل من البداية وحتى النهاية',
+    'info.cards.2.desc': 'لا تتردد في تعديل المحتوى الخاص بك بالطريقة التي تفضلها. لا تحتاج إلى معرفة أي من التقنيات المعقدة، سوف تساعدك أداتنا السهلة الاستخدام.',
+    'info.cards.3.title': 'بنيت لتكون مثلك تماماً',
+    'info.cards.3.desc': 'استعد دائماً لاختيار الحل الأمثل لاحتياجاتك، بدءاً من خدمات النقل التقليدية، وصولاً إلى الحلول الذكية التي تعكس نمط حياتك.',
   }
 };
 
