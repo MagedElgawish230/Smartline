@@ -22,16 +22,11 @@ const EasierInAppsSection = () => {
               <h3 className={`text-2xl font-bold text-gray-900 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.smartline.title')}</h3>
               <ArrowIcon className="w-6 h-6 text-gray-400 group-hover:text-primary-600 transition-colors" />
             </div>
-            <p className={`text-gray-600 mb-6 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.scan')}</p>
             
-            {/* QR Code placeholder */}
+            {/* App Image */}
             <a href="/apk/passanger.apk" download>
-              <div className="w-24 h-24 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center mb-6">
-                <div className="grid grid-cols-3 gap-1">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 bg-gray-800 rounded-sm"></div>
-                  ))}
-                </div>
+              <div className="w-24 h-24 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center mb-6 overflow-hidden">
+                <img src="/lovable-uploads/Passanger App.png" alt="SmartLine App QR" className="object-contain w-full h-full" />
               </div>
             </a>
           </div>
@@ -42,16 +37,11 @@ const EasierInAppsSection = () => {
               <h3 className={`text-2xl font-bold text-gray-900 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.driver.title')}</h3>
               <ArrowIcon className="w-6 h-6 text-gray-400 group-hover:text-primary-600 transition-colors" />
             </div>
-            <p className={`text-gray-600 mb-6 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.scan')}</p>
             
-            {/* QR Code placeholder */}
+            {/* App Image */}
             <a href="/apk/driver.apk" download>
-              <div className="w-24 h-24 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center mb-6">
-                <div className="grid grid-cols-3 gap-1">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="w-2 h-2 bg-gray-800 rounded-sm"></div>
-                  ))}
-                </div>
+              <div className="w-24 h-24 bg-white border-2 border-gray-200 rounded-lg flex items-center justify-center mb-6 overflow-hidden">
+                <img src="/lovable-uploads/Driver App.png" alt="Driver App QR" className="object-contain w-full h-full" />
               </div>
             </a>
           </div>
