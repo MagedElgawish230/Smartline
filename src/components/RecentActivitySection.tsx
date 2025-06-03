@@ -16,11 +16,11 @@ const RecentActivitySection = () => {
           {/* Content */}
           <div className={`${isRTL ? 'font-cairo text-right' : 'font-inter'} order-2 lg:order-1`}>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6">
-              {user ? `Welcome back, ${user.email}!` : t('recent.title')}
+              {user ? `${t('recent.welcome')} ${user.email}!` : t('recent.title')}
             </h2>
             
             <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
-              {user ? 'Ready to book your next ride?' : t('recent.description')}
+              {user ? t('recent.ready') : t('recent.description')}
             </p>
 
             <div className="space-y-4">
@@ -28,12 +28,12 @@ const RecentActivitySection = () => {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <BookRideModal>
                     <Button className="w-full sm:w-auto bg-primary-600 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium hover:bg-primary-700 transition-colors text-base md:text-lg">
-                      Book a Ride
+                      {t('recent.book')}
                     </Button>
                   </BookRideModal>
                   <Link to="/dashboard" className="w-full sm:w-auto">
                     <Button variant="outline" className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium text-base md:text-lg">
-                      View Profile
+                      {t('recent.profile')}
                     </Button>
                   </Link>
                 </div>

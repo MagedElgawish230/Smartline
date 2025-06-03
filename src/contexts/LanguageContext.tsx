@@ -40,6 +40,10 @@ const translations = {
     'recent.signup.text': "Don't have a SmartLine account?",
     'recent.signup.link': 'Sign up',
     'recent.image.alt': 'Recent activity illustration',
+    'recent.welcome': 'Welcome back,',
+    'recent.ready': 'Ready to book your next ride?',
+    'recent.book': 'Book a Ride',
+    'recent.profile': 'View Profile',
     
     // Drive and Earn Section
     'drive.title': 'Drive when you want, make what you need',
@@ -178,12 +182,12 @@ const translations = {
     'driver.driverLicense': 'Driver License',
     
     // Info Cards Section
-    'info.cards.1.title': 'All information at your fingertips',
-    'info.cards.1.desc': "Don't miss any details anymore. Get all the information you need, whenever and wherever you want. Analyze it easily through our user-friendly interface and improve your experience.",
-    'info.cards.2.title': 'Customizable from start to finish',
-    'info.cards.2.desc': 'Feel free to customize your content the way you prefer. No need for complex technical knowledge, our easy-to-use tool will help you.',
-    'info.cards.3.title': 'Built to be just like you',
-    'info.cards.3.desc': 'Always ready to choose the best solution for your needs, from traditional transport services to smart solutions that reflect your lifestyle.',
+    'info.cards.1.title': 'Fastest Smart Scooter in Egypt 🚀',
+    'info.cards.1.desc': '\nUnbeatable price: 4 EGP/km! 🛵\nOrder it from SmartLine and save your time and money',
+    'info.cards.2.title': '🚗 Smart Pro Car',
+    'info.cards.2.desc': 'Make your ride stylish and affordable! Comfort and elegance at a price that suits you!',
+    'info.cards.3.title': '🚘 Smart VIP Car',
+    'info.cards.3.desc': 'Got an occasion? Don\'t hesitate for a second! A car that will impress and always keep you in the spotlight 😉',
   },
   ar: {
     // Navigation
@@ -215,6 +219,10 @@ const translations = {
     'recent.signup.text': 'ليس لديك حساب سمارت لاين؟',
     'recent.signup.link': 'إنشاء حساب',
     'recent.image.alt': 'النشاط الأخير',
+    'recent.welcome': 'مرحباً بعودتك،',
+    'recent.ready': 'جاهز لحجز رحلتك القادمة؟',
+    'recent.book': 'احجز رحلة',
+    'recent.profile': 'الملف الشخصي',
     
     // Drive and Earn Section
     'drive.title': 'قد متى تريد، اكسب ما تحتاج',
@@ -353,12 +361,12 @@ const translations = {
     'driver.driverLicense': 'رخصة القيادة',
     
     // Info Cards Section
-    'info.cards.1.title': 'كل المعلومات في متناول يدك',
-    'info.cards.1.desc': 'لا تتوقف أي تفاصيل بعد الآن، واحصل على كافة المعلومات التي تحتاج إليها متى وأينما تريد. تُمكنك من تحليلها بكل سهولة من خلال الواجهة سهلة الاستخدام لدينا وقم بتحسين تجربتك.',
-    'info.cards.2.title': 'قابل للتعديل من البداية وحتى النهاية',
-    'info.cards.2.desc': 'لا تتردد في تعديل المحتوى الخاص بك بالطريقة التي تفضلها. لا تحتاج إلى معرفة أي من التقنيات المعقدة، سوف تساعدك أداتنا السهلة الاستخدام.',
-    'info.cards.3.title': 'بنيت لتكون مثلك تماماً',
-    'info.cards.3.desc': 'استعد دائماً لاختيار الحل الأمثل لاحتياجاتك، بدءاً من خدمات النقل التقليدية، وصولاً إلى الحلول الذكية التي تعكس نمط حياتك.',
+    'info.cards.1.title': 'أسرع سمارت سكوتر في مصر 🚀',
+    'info.cards.1.desc': '\nبسعر خرافي 4 جنيه للكيلو! 🛵\nاطلبه من SmartLine ووفّر وقتك وفلوسك',
+    'info.cards.2.title': '🚗 سيارة سمارت برو',
+    'info.cards.2.desc': 'هتخلي مشوارك شيك وعلى قد جيبك بـجد!راحة وأناقة بسعر يناسبك!',
+    'info.cards.3.title': '🚘 سيارة سمارت VIP',
+    'info.cards.3.desc': 'عندك مناسبة؟ متترددش لحظة!\nعربية هتشرفك وتخليك دايمًا في الصورة 😉',
   }
 };
 
