@@ -4,7 +4,7 @@ import Hero from '../components/Hero';
 // import GoAnywhereSection from '../components/GoAnywhereSection';
 import RecentActivitySection from '../components/RecentActivitySection';
 import DriveEarnSection from '../components/DriveEarnSection';
-import EasierInAppsSection from '../components/EasierInAppsSection';
+// import EasierInAppsSection from '../components/EasierInAppsSection';
 import AboutSection from '../components/AboutSection';
 import FounderSection from '../components/FounderSection';
 import DownloadSection from '../components/DownloadSection';
@@ -26,7 +26,7 @@ const Index = () => {
       {/* <GoAnywhereSection /> */}
       <RecentActivitySection />
       <DriveEarnSection />
-      <EasierInAppsSection />
+      {/* <EasierInAppsSection /> */}
       <AboutSection />
       <FounderSection />
       <DownloadSection />

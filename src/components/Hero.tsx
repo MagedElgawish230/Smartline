@@ -48,16 +48,24 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Phone Mockup */}
-          <div className="relative flex justify-center lg:justify-end animate-fade-in order-1 lg:order-2 mb-8 lg:mb-0" style={{ animationDelay: '0.3s' }}>
-            <div className="relative w-64 md:w-80 h-80 md:h-96 bg-gray-900 rounded-3xl p-2 shadow-2xl">
-              <div className="w-full h-full bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="text-5xl md:text-6xl mb-4">📱</div>
-                  <div className="text-lg md:text-xl font-bold">SmartLine App</div>
-                  <div className="text-xs md:text-sm opacity-80 mt-2">Your ride awaits</div>
-                </div>
+          {/* Phone Mockup with Fullscreen Video */}
+          <div className="relative flex flex-col items-center justify-center animate-fade-in order-1 lg:order-2 mb-8 lg:mb-0" style={{ animationDelay: '0.3s' }}>
+            <div className="relative w-64 md:w-80 h-80 md:h-96 bg-gray-900 rounded-3xl p-2 shadow-2xl flex items-center justify-center">
+              <div className="w-full h-full bg-gradient-to-br from-primary-500 to-primary-700 rounded-2xl overflow-hidden flex items-center justify-center">
+                <video
+                  src="/lovable-uploads/Smartline 2.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover rounded-2xl"
+                  style={{ background: '#222' }}
+                />
               </div>
+            </div>
+            <div className="text-center mt-4">
+              <div className="text-lg md:text-xl font-bold text-primary-600">SmartLine App</div>
+              <div className="text-xs md:text-sm opacity-80 mt-2 text-primary-600">Your ride awaits</div>
             </div>
           </div>
         </div>

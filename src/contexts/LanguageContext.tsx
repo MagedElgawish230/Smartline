@@ -217,7 +217,7 @@ const translations = {
     'recent.image.alt': 'النشاط الأخير',
     
     // Drive and Earn Section
-    'drive.title': 'اقد متى تريد، اكسب ما تحتاج',
+    'drive.title': 'قد متى تريد، اكسب ما تحتاج',
     'drive.description': 'اكسب المال وفقاً لجدولك الزمني مع التوصيل أو الركوب - أو كليهما. يمكنك استخدام سيارتك الخاصة أو اختيار استئجار واحدة من خلال سمارت لاين.',
     'drive.cta': 'ابدأ الآن',
     'drive.signin.text': 'لديك حساب بالفعل؟',
@@ -365,7 +365,7 @@ const translations = {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('ar');
 
   const t = (key: string): string => {
     const [section, k] = key.split('.');

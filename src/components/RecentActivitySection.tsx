@@ -60,7 +60,7 @@ const RecentActivitySection = () => {
           <div className="order-1 lg:order-2 mb-8 lg:mb-0">
             <div className="relative">
               <img
-                src="/lovable-uploads/518201d3-5873-4950-ac22-690af516212e.png"
+                src="/lovable-uploads/Login.jpg"
                 alt={t('recent.image.alt')}
                 className="w-full h-auto rounded-lg shadow-lg"
               />
