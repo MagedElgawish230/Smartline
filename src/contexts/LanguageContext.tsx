@@ -178,12 +178,12 @@ const translations = {
     'driver.driverLicense': 'Driver License',
     
     // Info Cards Section
-    'info.cards.1.title': 'All information at your fingertips',
-    'info.cards.1.desc': "Don't miss any details anymore. Get all the information you need, whenever and wherever you want. Analyze it easily through our user-friendly interface and improve your experience.",
-    'info.cards.2.title': 'Customizable from start to finish',
-    'info.cards.2.desc': 'Feel free to customize your content the way you prefer. No need for complex technical knowledge, our easy-to-use tool will help you.',
-    'info.cards.3.title': 'Built to be just like you',
-    'info.cards.3.desc': 'Always ready to choose the best solution for your needs, from traditional transport services to smart solutions that reflect your lifestyle.',
+    'info.cards.1.title': 'Fastest Smart Scooter in Egypt 🚀',
+    'info.cards.1.desc': '\nUnbeatable price: 4 EGP/km! 🛵\nOrder it from SmartLine and save your time and money',
+    'info.cards.2.title': '🚗 Smart Pro Car',
+    'info.cards.2.desc': 'Make your ride stylish and affordable! Comfort and elegance at a price that suits you!',
+    'info.cards.3.title': '🚘 Smart VIP Car',
+    'info.cards.3.desc': 'Got an occasion? Don’t hesitate for a second! A car that will impress and always keep you in the spotlight 😉',
   },
   ar: {
     // Navigation
