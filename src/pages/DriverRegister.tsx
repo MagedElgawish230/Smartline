@@ -18,8 +18,8 @@ const DriverRegister = () => {
     const uploadedUrls: any = {};
     
     // Upload driver photo
-    if (driverData.driverPhoto && driverData.driverPhoto.length > 0) {
-      const photoUrl = await uploadDriverPhoto(driverData.driverPhoto[0], userId, 'driver_photo');
+    if (driverData.driverPhoto) {
+      const photoUrl = await uploadDriverPhoto(driverData.driverPhoto, userId, 'driver_photo');
       if (photoUrl) uploadedUrls.driverPhotoUrl = photoUrl;
     }
 
