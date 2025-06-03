@@ -4,10 +4,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Navigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Users, Car, Star, TrendingUp } from 'lucide-react';
+import { Users, Car, Star, TrendingUp, MessageSquare } from 'lucide-react';
 import DriverApplications from '@/components/admin/DriverApplications';
 import DashboardStats from '@/components/admin/DashboardStats';
 import DriversDashboard from '@/components/admin/DriversDashboard';
+import { ContactMessages } from '@/components/admin/ContactMessages';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
@@ -31,6 +32,7 @@ const AdminDashboard = () => {
       overview: 'Overview',
       drivers: 'Driver Applications',
       driversList: 'Drivers List',
+      messages: 'Contact Messages',
       totalDrivers: 'Total Drivers',
       pendingApplications: 'Pending Applications',
       averageRating: 'Average Rating',
@@ -41,6 +43,7 @@ const AdminDashboard = () => {
       overview: 'نظرة عامة',
       drivers: 'طلبات السائقين',
       driversList: 'قائمة السائقين',
+      messages: 'رسائل الاتصال',
       totalDrivers: 'إجمالي السائقين',
       pendingApplications: 'الطلبات المعلقة',
       averageRating: 'متوسط التقييم',
@@ -58,10 +61,11 @@ const AdminDashboard = () => {
         </h1>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
+          <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="overview">{translations[currentLang].overview}</TabsTrigger>
             <TabsTrigger value="drivers">{translations[currentLang].drivers}</TabsTrigger>
             <TabsTrigger value="driversList">{translations[currentLang].driversList}</TabsTrigger>
+            <TabsTrigger value="messages">{translations[currentLang].messages}</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview" className="space-y-6">
@@ -74,6 +78,10 @@ const AdminDashboard = () => {
 
           <TabsContent value="driversList">
             <DriversDashboard />
+          </TabsContent>
+
+          <TabsContent value="messages">
+            <ContactMessages />
           </TabsContent>
         </Tabs>
       </div>
