@@ -156,6 +156,7 @@ const translations = {
     'feedback.thanks': 'Thank You!',
     'feedback.success': 'Thank you for your feedback! We appreciate your input.',
     'feedback.help': 'Your feedback helps us provide better service to all our users',
+    'feedback.login_required': 'You must be logged in to submit feedback.',
     
     // Driver Registration
     'driver.title': 'Driver Registration',
@@ -335,6 +336,7 @@ const translations = {
     'feedback.thanks': 'شكراً لك!',
     'feedback.success': 'شكراً لك على رأيك! نحن نقدر مساهمتك.',
     'feedback.help': 'ملاحظاتك تساعدنا على تقديم خدمة أفضل لجميع مستخدمينا.',
+    'feedback.login_required': 'يجب تسجيل الدخول أولاً لإرسال رأيك.',
     
     // Driver Registration
     'driver.title': 'تسجيل السائق',

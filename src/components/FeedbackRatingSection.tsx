@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { supabase } from '../integrations/supabase/client';
+import { useAuth } from '../contexts/AuthContext';
 
 const FeedbackRatingSection = () => {
   const { t, isRTL } = useLanguage();
+  const { user } = useAuth();
   const [rating, setRating] = useState(0);
   const [hoveredRating, setHoveredRating] = useState(0);
   const [feedback, setFeedback] = useState('');
@@ -12,6 +14,7 @@ const FeedbackRatingSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!user) return;
     try {
       const { error } = await supabase
         .from('feedback')
@@ -89,6 +92,11 @@ const FeedbackRatingSection = () => {
         </div>
 
         <div className="bg-gray-50 rounded-2xl p-8 max-w-2xl mx-auto">
+          {!user && (
+            <div className="text-center mb-6">
+              <p className="text-red-600 font-semibold text-lg">{t('feedback.login_required')}</p>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Star Rating */}
             <div className="text-center">
@@ -117,6 +125,7 @@ const FeedbackRatingSection = () => {
                 onChange={(e) => setFeedback(e.target.value)}
                 placeholder={t('feedback.placeholder')}
                 className={`w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent resize-none ${isRTL ? 'font-cairo text-right' : 'font-inter'}`}
+                disabled={!user}
               />
             </div>
 
@@ -124,7 +133,7 @@ const FeedbackRatingSection = () => {
             <div className="text-center">
               <button
                 type="submit"
-                disabled={rating === 0 || !feedback.trim()}
+                disabled={!user || rating === 0 || !feedback.trim()}
                 className="bg-primary-600 text-white px-8 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
               >
                 {submitted ? t('feedback.thanks') : t('feedback.submit')}
