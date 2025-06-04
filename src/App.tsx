@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import DriverRegister from "./pages/DriverRegister";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
         </AuthProvider>
       </LanguageProvider>
     </TooltipProvider>
+    <Analytics />
   </QueryClientProvider>
 );
 
