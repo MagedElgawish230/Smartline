@@ -31,11 +31,6 @@ const RecentActivitySection = () => {
                       {t('recent.book')}
                     </Button>
                   </BookRideModal>
-                  <Link to="/dashboard" className="w-full sm:w-auto">
-                    <Button variant="outline" className="w-full sm:w-auto px-6 md:px-8 py-3 md:py-4 rounded-lg font-medium text-base md:text-lg">
-                      {t('recent.profile')}
-                    </Button>
-                  </Link>
                 </div>
               ) : (
                 <>
