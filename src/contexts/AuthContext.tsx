@@ -53,6 +53,18 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { toast } = useToast();
 
   useEffect(() => {
+    // Explicitly handle session if there is a URL hash (typical after OAuth redirect)
+    if (window.location.hash) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        setSession(session);
+        setUser(session?.user ?? null);
+        if (session?.user) {
+          fetchProfile(session.user.id);
+        }
+        setLoading(false);
+      });
+    }
+
     // Set up auth state listener first
     const {
       data: { subscription },
