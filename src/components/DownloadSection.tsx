@@ -22,7 +22,7 @@ const DownloadSection = () => {
             <div className="absolute inset-0 bg-black bg-opacity-60" />
             <div className="relative z-10 p-8 flex flex-col h-full justify-end">
               <h3 className={`text-2xl font-bold text-white mb-4 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.smartline.title')}</h3>
-              <a href="/apk/passanger.apk" download className="w-full">
+              <a href="https://mega.nz/file/mQNxUS7Q#WP-_nDw3vlEX4qqbfUrvoItyqrj09oP8asgA-7FxLTA" target="_blank" rel="noopener noreferrer" className="w-full">
                 <button className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg font-semibold text-base transition-all duration-200 shadow-md mt-2">
                   Download
                 </button>
@@ -38,7 +38,7 @@ const DownloadSection = () => {
             <div className="absolute inset-0 bg-black bg-opacity-60" />
             <div className="relative z-10 p-8 flex flex-col h-full justify-end">
               <h3 className={`text-2xl font-bold text-white mb-4 ${isRTL ? 'font-cairo' : 'font-inter'}`}>{t('apps.driver.title')}</h3>
-              <a href="/apk/driver.apk" download className="w-full">
+              <a href="https://mega.nz/file/6YdinQTb#JD_K5l1peIy1B9UFsM4VxSbvUVegOqxx_-TPdu_K3no" target="_blank" rel="noopener noreferrer" className="w-full">
                 <button className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 rounded-lg font-semibold text-base transition-all duration-200 shadow-md mt-2">
                   Download
                 </button>
