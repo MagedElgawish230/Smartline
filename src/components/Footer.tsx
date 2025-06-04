@@ -76,7 +76,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8">
           <p className={`text-center text-sm md:text-base text-gray-400 ${isRTL ? 'font-cairo' : 'font-inter'}`}>
-            {t('footer.rights')}
+            copwrite by <a href="https://www.acwad-techonlogy.com/index.html" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">acwad tecnolgy</a>
           </p>
         </div>
       </div>
