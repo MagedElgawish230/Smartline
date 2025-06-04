@@ -127,10 +127,13 @@ const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuItem onClick={() => navigate('/dashboard')}>
-                    <User className="h-4 w-4 mr-2" />
-                    {translations[currentLang].dashboard}
-                  </DropdownMenuItem>
+                  {/* Only show Dashboard link if user is admin */}
+                  {isAdmin && (
+                    <DropdownMenuItem onClick={() => navigate('/dashboard')}>
+                      <User className="h-4 w-4 mr-2" />
+                      {translations[currentLang].dashboard}
+                    </DropdownMenuItem>
+                  )}
                   <DropdownMenuItem onClick={handleSignOut}>
                     <LogOut className="h-4 w-4 mr-2" />
                     {translations[currentLang].logout}
@@ -190,15 +193,18 @@ const Header = () => {
               <div className="mt-3 px-2 space-y-1">
                 {user ? (
                   <>
-                    <button
-                      onClick={() => {
-                        navigate('/dashboard');
-                        setIsMobileMenuOpen(false);
-                      }}
-                      className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
-                    >
-                      {translations[currentLang].dashboard}
-                    </button>
+                    {/* Only show Dashboard link if user is admin (mobile) */}
+                    {isAdmin && (
+                      <button
+                        onClick={() => {
+                          navigate('/dashboard');
+                          setIsMobileMenuOpen(false);
+                        }}
+                        className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
+                      >
+                        {translations[currentLang].dashboard}
+                      </button>
+                    )}
                     <button
                       onClick={handleSignOut}
                       className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50"
