@@ -13,6 +13,7 @@ import NotFound from "./pages/NotFound";
 import DriverRegister from "./pages/DriverRegister";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Analytics } from "@vercel/analytics/react";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
+          <WhatsAppButton />
         </AuthProvider>
       </LanguageProvider>
     </TooltipProvider>
