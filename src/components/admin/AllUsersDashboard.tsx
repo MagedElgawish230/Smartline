@@ -32,6 +32,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
 import FeedbackList from '@/components/FeedbackList';
+import DriverApplicationsDashboard from './DriverApplicationsDashboard';
 
 interface User {
   id: string;
@@ -162,6 +163,7 @@ const AllUsersDashboard = () => {
         <TabsList>
           <TabsTrigger value="users">All Users</TabsTrigger>
           <TabsTrigger value="messages">Contact Messages</TabsTrigger>
+          <TabsTrigger value="driver-applications">Driver Applications</TabsTrigger>
         </TabsList>
         
         <TabsContent value="users">
@@ -329,6 +331,10 @@ const AllUsersDashboard = () => {
         
         <TabsContent value="messages">
           <ContactMessages />
+        </TabsContent>
+
+        <TabsContent value="driver-applications">
+          <DriverApplicationsDashboard />
         </TabsContent>
       </Tabs>
     </div>
